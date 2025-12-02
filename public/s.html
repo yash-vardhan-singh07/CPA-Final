@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Your Rewards</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Phosphor Icons for emojis/icons -->
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/css/icons.css">
+    
+    <style>
+        /* Custom Colors based on user's provided palette */
+        :root {
+            --bg-dark: #101010;
+            --text-light: #FEFEFE;
+            --block-bg: #1F2125;
+            --link-bg: #c7ffb7;
+            --link-text: #088a74;
+            --header-text: #ffffff;
+            --purple-bubble: #6d28d9; 
+            --neon-green: #17e84a; /* Specific green for glow */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            min-height: 100vh;
+        }
+
+/* Removed unused .h123 rule */
+
+.reward-button {
+    background: #c7ffb7;
+    color: #088a74;
+    transition: all 0.6s ease;
+    border-radius: 9999px; /* Full round corners for all buttons */
+}
+
+/* Only Amazon button dances */
+.amazon-dance {
+    animation: danceZoom 3.5s infinite ease-in-out;
+    transform-origin: center;
+}
+
+/* Smooth, gentle dance (zoom + rotate + hop) */
+@keyframes danceZoom {
+    0%, 70%, 100% {
+        transform: scale(1) rotate(0deg) translateY(0);
+    }
+
+    75% {
+        transform: scale(1.1) rotate(-3deg) translateY(-6px);
+    }
+
+    80% {
+        transform: scale(1.13) rotate(3deg) translateY(-8px);
+    }
+
+    85% {
+        transform: scale(1.1) rotate(-2deg) translateY(-5px);
+    }
+
+    90% {
+        transform: scale(1.08) rotate(2deg) translateY(-6px);
+    }
+
+    95% {
+        transform: scale(1) rotate(0deg) translateY(0);
+    }
+}
+
+
+        .reward-button:hover {
+            box-shadow: inset 0 0 15px rgba(8, 138, 116, 0.6), 
+                        0 0 30px 0 rgba(199, 255, 183, 0.8);
+        }
+
+        .reward-button:active {
+            transform: scale(0.97);
+            box-shadow: inset 0 0 20px rgba(8, 138, 116, 0.8);
+        }
+
+        .block-card {
+            background-color: var(--block-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Carousel/Chat Styling */
+        .chat-carousel-container {
+            overflow-x: scroll;
+            /* Added smooth scroll behavior for dot clicks */
+            scroll-behavior: smooth; 
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 1rem; /* Space for shadow */
+        }
+
+        .chat-slide {
+            flex: 0 0 100%; /* Make each slide take up the full width of the container viewport */
+            scroll-snap-align: start; /* Snap precisely to the start of the slide */
+            width: 100%;
+            /* Kept aspect ratio for responsive height */
+            aspect-ratio: 4/9; 
+            background-color: var(--bg-dark); 
+            border: 1px solid var(--block-bg);
+            box-shadow: 0 0 25px rgba(31, 33, 37, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Image fills the whole box */
+            border-radius: 0.75rem; /* Match the rounded-2xl on the slide container */
+        }
+
+        /* Enhanced Dollar Graphic Styling */
+        .dollar-icon-container {
+            /* Fixed size for aesthetic consistency */
+            width: 160px;
+            height: 160px;
+            margin: 0 auto;
+            border-radius: 50%;
+            position: relative;
+            background-color: #0c2f10; /* Dark inner color for the "coin" */
+            border: 4px solid var(--neon-green);
+            /* Initial glow for when flicker is off / max intensity */
+            box-shadow: 0 0 10px 2px var(--neon-green), 0 0 20px 5px var(--neon-green);
+            overflow: hidden; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            /* Apply the new aggressive flicker animation */
+            animation: neon-flicker 1.5s infinite alternate;
+        }
+        
+        .dollar-icon-container img {
+            /* Ensure the image/content is visible and contained within the circular boundary */
+            width: 70%;
+            height: 70%;
+            object-fit: contain;
+            /* UPDATED: Increased shadow spread and intensity */
+            filter: drop-shadow(0 0 8px var(--neon-green)) 
+                    drop-shadow(0 0 15px rgba(255, 255, 255, 0.7)); 
+        }
+
+        /* NEW Glitch/Flicker keyframes: rapid and harsh changes in opacity and shadow intensity */
+        @keyframes neon-flicker {
+            /* Full intensity */
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                opacity: 1;
+                box-shadow: 0 0 10px 2px var(--neon-green), 0 0 25px 8px var(--neon-green);
+            }
+            /* Flicker 1: Dim/off */
+            20%, 24%, 55% {
+                opacity: 0.6;
+                box-shadow: 0 0 3px 1px var(--neon-green);
+            }
+            /* Flicker 2: Max intensity flash */
+            50% {
+                opacity: 1;
+                box-shadow: 0 0 20px 5px #fff, 0 0 40px 15px var(--neon-green);
+            }
+        }
+        
+        /* List item separator for How to Claim section */
+        .claim-list li:not(:last-child) {
+            /* Reduced spacing between list items */
+            padding-bottom: 0.75rem;
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .claim-list li p {
+            font-weight: 500; /* Make the description stand out a bit more */
+        }
+        
+        /* NEW: Style for the list numbers */
+        .claim-list-number {
+            font-size: 1rem; /* Equivalent to Tailwind text-base, matching content text size */
+            font-weight: normal; /* Normal font weight (less bold) */
+            margin-right: 0.75rem; /* Reduced margin for spacing */
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+
+    <div id="app" class="max-w-4xl mx-auto">
+
+        <!-- Header and Reward Graphic Section -->
+        <header class="text-center mb-12 pt-6">
+            <div class="relative inline-block mb-6">
+                
+                <!-- Enhanced Dollar Graphic Container -->
+                <div class="dollar-icon-container flex items-center justify-center">
+                    <!-- Image is placed inside the container for the neon effect -->
+                    <img src="dp_beacons111-removebg-preview.png" 
+                         alt="Reward Graphic" 
+                         class="w-full h-full object-contain"
+                         onerror="this.onerror=null;this.src='https://placehold.co/160x160/0c2f10/17e84a?text=$';">
+                </div>
+                
+                <!-- Overlaid Text (Adjusted positions to accommodate new graphic size) -->
+                <p class="absolute top-0 right-0 text-sm font-bold text-green-300 transform translate-x-1/2 -translate-y-1/2">upto $750</p>
+                <p class="absolute bottom-0 left-0 text-sm font-bold text-green-300 transform -translate-x-1/4 translate-y-1/2">claim rewards</p>
+                
+                <p class="mt-8 text-sm text-gray-400">Just by completing surveys</p>
+            </div>
+        </header>
+
+        <!-- Reward Survey Section -->
+<section class="mb-12 text-center">
+    <!-- Adjusted heading size for better responsiveness -->
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-2">
+        <span class="text-yellow-500">✨</span> Reward Survey <span class="text-yellow-500">✨</span>
+    </h2>
+    <p class="text-md text-gray-400 mb-6">
+        <span class="text-green-400">🌿</span> I Choose Your Rewards <span class="text-green-400">🌿</span>
+    </p>
+
+    <div class="space-y-4">
+        <!-- Amazon Button (Dancing) -->
+        <a
+            href="https://glstrck.com/aff_c?offer_id=1698&aff_id=32400"
+            class="reward-button amazon-dance flex items-center p-5 rounded-full max-w-sm mx-auto shadow-lg hover:shadow-2xl"
+        >
+            <div class="bg-white rounded-full p-1 mr-4">
+                <i class="ph-fill ph-amazon-logo text-3xl text-black"></i>
+            </div>
+            <div>
+                <!-- Responsive text sizing for button content -->
+                <p class="font-extrabold text-xl sm:text-2xl">$750 Amazon 🎁</p>
+                <p class="text-sm opacity-90 font-medium">(Complete survey and deals)</p>
+            </div>
+            <i class="ph ph-caret-right ml-auto text-2xl font-extrabold"></i>
+        </a>
+
+        <!-- Cash Button (Static, same border radius) -->
+        <a
+            href="https://offerlnks.com/aff_c?offer_id=74&aff_id=32400"
+            class="reward-button flex items-center p-5 rounded-full max-w-sm mx-auto shadow-lg hover:shadow-2xl"
+        >
+            <i class="ph-fill ph-currency-dollar text-4xl mr-4"></i>
+            <div>
+                <!-- Responsive text sizing for button content -->
+                <p class="font-extrabold text-xl sm:text-2xl">$750 Cash 💵</p>
+                <p class="text-sm opacity-90 font-medium">(Complete survey and deals)</p>
+            </div>
+            <i class="ph ph-caret-right ml-auto text-2xl font-extrabold"></i>
+        </a>
+    </div>
+</section>
+
+
+        <!-- Top Claims Carousel Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-white mb-6 text-center">
+                Top Claims <span class="text-orange-400">💰</span>
+            </h2>
+
+            <!-- Carousel Container -->
+            <div id="chat-carousel" class="chat-carousel-container flex">
+                
+                <!-- Chat Slide 1: Image Placeholder -->
+                <div class="chat-slide rounded-2xl overflow-hidden shadow-2xl">
+                    <img src="1232.jpg"
+                         alt="Simulated chat conversation 1"
+                         onerror="this.onerror=null;this.src='https://placehold.co/400x500/101010/E0E0E0?text=Chat+Screen+1%0ASwipe+Left'">
+                </div>
+
+                <!-- Chat Slide 2: Image Placeholder -->
+                <div class="chat-slide rounded-2xl overflow-hidden shadow-2xl">
+                    <img src="1233.jpg"
+                         alt="Simulated chat conversation 1"
+                         onerror="this.onerror=null;this.src='https://placehold.co/400x500/101010/E0E0E0?text=Chat+Screen+1%0ASwipe+Left'">
+                </div>
+                
+                <!-- Chat Slide 3: Image Placeholder -->
+                <div class="chat-slide rounded-2xl overflow-hidden shadow-2xl">
+                    <img src="1234.jpg"
+                         alt="Simulated chat conversation 2"
+                         onerror="this.onerror=null;this.src='https://placehold.co/400x500/101010/E0E0E0?text=Chat+Screen+2%0ASuccess+Story'">
+                </div>
+                
+                <!-- Chat Slide 4: Image Placeholder -->
+                <div class="chat-slide rounded-2xl overflow-hidden shadow-2xl">
+                    <img src="1235.jpg"
+                         alt="Simulated chat conversation 3"
+                         onerror="this.onerror=null;this.src='https://placehold.co/400x500/101010/E0E0E0?text=Chat+Screen+3%0ANew+User+Review'">
+                </div>
+
+            </div>
+            <!-- End Carousel Container -->
+
+            <div class="flex justify-center mt-4 space-x-2" id="carousel-dots">
+                <!-- Dots will be populated by JS -->
+            </div>
+        </section>
+
+        <!-- How to Claim Section -->
+        <section class="mb-12">
+            <div class="block-card p-8 rounded-2xl max-w-lg mx-auto shadow-2xl">
+                <!-- Responsive text sizing for header -->
+                <h3 class="text-xl sm:text-2xl font-extrabold text-white text-center mb-6">
+                    HOW TO CLAIM YOUR GIFT CARD
+                </h3>
+                <!-- Reduced space-y from 4 to 2 -->
+                <ol class="space-y-2 text-left claim-list">
+                    <li class="flex items-start">
+                        <!-- Applied new class: claim-list-number -->
+                        <span class="claim-list-number">1)</span>
+                        <p>Click one of the offers above <span class="text-orange-400">👆</span></p>
+                    </li>
+                    <li class="flex items-start">
+                        <!-- Applied new class: claim-list-number -->
+                        <span class="claim-list-number">2)</span>
+                        <p>Enter Your Email & Basic Info <span class="text-blue-400">✉️</span></p>
+                    </li>
+                    <li class="flex items-start">
+                        <!-- Applied new class: claim-list-number -->
+                        <span class="claim-list-number">3)</span>
+                        <p>Complete majority of the recommended offers <span class="text-red-400">❗</span></p>
+                    </li>
+                    <li class="flex items-start">
+                        <!-- Applied new class: claim-list-number -->
+                        <span class="claim-list-number">4)</span>
+                        <p>More the offers you complete, higher the rewards you get <span class="text-green-400">💵</span></p>
+                    </li>
+                    <li class="flex items-start">
+                        <!-- Applied new class: claim-list-number -->
+                        <span class="claim-list-number">5)</span>
+                        <p>Claim Your Gift Card <span class="text-yellow-500">🎁</span></p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const carousel = document.getElementById('chat-carousel');
+            const slides = carousel.querySelectorAll('.chat-slide');
+            const dotsContainer = document.getElementById('carousel-dots');
+            
+            // --- 1. Carousel Interaction Logic (RELYING ON CSS SCROLL SNAP) ---
+            
+            // --- 2. Pagination Dots Logic ---
+
+            // Create dots
+            slides.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.classList.add('w-2', 'h-2', 'rounded-full', 'bg-gray-600', 'transition-colors');
+                dot.setAttribute('data-index', index);
+                dotsContainer.appendChild(dot);
+
+                dot.addEventListener('click', () => {
+                    // Scroll to the corresponding slide
+                    const slideWidth = carousel.clientWidth; // Use container width for scroll distance
+                    const scrollDistance = index * slideWidth;
+                    
+                    carousel.scroll({
+                        left: scrollDistance,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            const dots = dotsContainer.querySelectorAll('button');
+
+            // Update active dot on scroll
+            const updateDots = () => {
+                const scrollPosition = carousel.scrollLeft;
+                
+                if (slides.length === 0) return;
+
+                // Use carousel.clientWidth as the base width for calculation
+                const slideWidth = carousel.clientWidth;
+
+                // Determine the currently centered slide index
+                const currentSlideIndex = Math.round(scrollPosition / slideWidth);
+                let activeIndex = Math.min(slides.length - 1, Math.max(0, currentSlideIndex));
+
+
+                dots.forEach((dot, index) => {
+                    if (index === activeIndex) {
+                        dot.classList.remove('bg-gray-600');
+                        dot.classList.add('bg-white');
+                    } else {
+                        dot.classList.remove('bg-white');
+                        dot.classList.add('bg-gray-600');
+                    }
+                });
+            };
+
+            // Initial update and event listener
+            updateDots();
+            carousel.addEventListener('scroll', updateDots);
+            // Re-run updateDots on resize to recalculate slideWidth
+            window.addEventListener('resize', updateDots); 
+        });
+    </script>
+</body>
+</html>
