@@ -65,8 +65,8 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  width: 350px;
-  height: 64px;
+  width: 310px;
+  height: 50px;
   transition: 0.4s;
   max-width: 350px;
   text-decoration : none;
