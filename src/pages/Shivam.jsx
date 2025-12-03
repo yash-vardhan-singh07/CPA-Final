@@ -61,7 +61,7 @@ export default function RewardsPage() {
 
           {/* Cash */}
           <a
-            href="https://offerlnks.com/aff_c?offer_id=74&aff_id=32400"
+            href="https://glitchy.go2cloud.org/aff_c?offer_id=3101&aff_id=32400"
             className="reward-button"
           >
             <img src="cashapp.jpg" alt="" className="reward-icon" />
@@ -79,7 +79,7 @@ export default function RewardsPage() {
       </h2>
 
       <section className="carousel-wrapper">
-        <div className="chat-carousel-container" ref={carousel"Ref}>
+        <div className="chat-carousel-container" ref={carouselRef}>
           <div className="chat-slide">
             <img src="1232.jpg" alt="" />
           </div>
