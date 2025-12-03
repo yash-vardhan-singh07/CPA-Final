@@ -61,7 +61,7 @@ export default function RewardsPage() {
 
           {/* Cash */}
           <a
-            href="https://youtube.com/shorts/nbh-bFXfI-g?si=zFSg3dUnEZWvTxVG"
+            href="https://offerlnks.com/aff_c?offer_id=74&aff_id=32400"
             className="reward-button"
           >
             <img src="cashapp.jpg" alt="" className="reward-icon" />
