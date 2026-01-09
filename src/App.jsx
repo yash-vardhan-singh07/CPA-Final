@@ -12,6 +12,9 @@ function App() {
         <Route path="/reward" element={<Praharsh />} />
         <Route path="/rewards" element={<Shivam />} />
         <Route path="/gift" element={<Gift />} />
+        <Route path="/claims" element={<Shivam />} />
+        <Route path="/claim" element={<Shivam />} />
+        <Route path="/amzn" element={<Shivam />} />
       </Routes>
     </BrowserRouter>
   );
