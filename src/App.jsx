@@ -3,6 +3,7 @@ import Yash from "./pages/Yash";
 import Shivam from "./pages/Shivam";
 import Gift from "./pages/Gift";
 import Praharsh from "./pages/Praharsh";
+import Claim from "./pages/Claim";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/claims" element={<Shivam />} />
         <Route path="/claim" element={<Shivam />} />
         <Route path="/amzn" element={<Shivam />} />
+        <Route path="/claimgift" element={<Claim />} />
       </Routes>
     </BrowserRouter>
   );
