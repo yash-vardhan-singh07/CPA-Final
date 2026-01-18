@@ -5,6 +5,7 @@ import Gift from "./pages/Gift";
 import Praharsh from "./pages/Praharsh";
 import Claim from "./pages/Claim";
 import Aaag from "./pages/Aaag";
+import Amz from "./pages/Amz";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/amzn" element={<Shivam />} />
         <Route path="/claimgift" element={<Claim />} />
         <Route path="/rewards" element={<Aaag />} />
+        <Route path="/amzn" element={<Amz />} />
       </Routes>
     </BrowserRouter>
   );
