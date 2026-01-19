@@ -19,7 +19,7 @@ function App() {
         <Route path="/amzn" element={<Shivam />} />
         <Route path="/claimgift" element={<Claim />} />
         <Route path="/rewards" element={<Aaag />} />
-        <Route path="/amzn" element={<Amz />} />
+        <Route path="/getgift" element={<Amz />} />
       </Routes>
     </BrowserRouter>
   );
