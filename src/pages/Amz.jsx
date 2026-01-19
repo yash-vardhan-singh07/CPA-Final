@@ -60,7 +60,7 @@ export default function RewardsPage() {
           </a>
 
           {/* Cash */}
-          <source
+          <a
             href="https://trkio.org/aff_c?offer_id=3089&aff_id=32400&source=Amnk"
             className="reward-button"
           >
