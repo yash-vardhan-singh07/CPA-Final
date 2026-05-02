@@ -49,7 +49,7 @@ export default function RewardsPage() {
         <div className="reward-buttons">
           {/* Amazon */}
           <a
-            href="https://trkio.org/aff_c?offer_id=3103&aff_id=32400&source=Prashant"
+            href="https://giftclick.org/aff_c?offer_id=3103&aff_id=32400&source=Janvi"
             className="reward-button amazon-dance"
           >
             <img src="amazon.jpg" alt="" className="reward-icon" />
@@ -61,7 +61,7 @@ export default function RewardsPage() {
 
           {/* Cash */}
           <a
-            href="https://gloffers.org/aff_c?offer_id=3101&aff_id=32400&source=Prashant%20"
+            href="https://trksy.org/aff_c?offer_id=3101&aff_id=32400&source=Janvi
             className="reward-button"
           >
             <img src="cashapp.jpg" alt="" className="reward-icon" />
@@ -84,7 +84,7 @@ export default function RewardsPage() {
             <img src="1232.jpg" alt="" />
           </div>
           <div className="chat-slide">
-            <img src="1233.jpg" alt="" />
+"            <img src="1233.jpg" alt="" />
           </div>
           <div className="chat-slide">
             <img src="1234.jpg" alt="" />
