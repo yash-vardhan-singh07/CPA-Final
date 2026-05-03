@@ -14,7 +14,7 @@ function App() {
         <Route path="/" element={<Yash />} />
         <Route path="/reward" element={<Praharsh />} />
         <Route path="/gift" element={<Gift />} />
-        <Route path="/claims" element={<Shivam />} />
+        <Route path="/claim" element={<Shivam />} />
         <Route path="/clai" element={<Shivam />} />
         <Route path="/amzn" element={<Amz />} />
         <Route path="/claim" element={<Claim />} />
