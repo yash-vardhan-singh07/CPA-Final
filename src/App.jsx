@@ -15,11 +15,11 @@ function App() {
         <Route path="/reward" element={<Praharsh />} />
         <Route path="/gift" element={<Gift />} />
         <Route path="/claims" element={<Shivam />} />
-        <Route path="/claim" element={<Shivam />} />
+        <Route path="/clai" element={<Shivam />} />
         <Route path="/amzn" element={<Shivam />} />
-        <Route path="/claimgift" element={<Claim />} />
+        <Route path="/claim" element={<Claim />} />
         <Route path="/rewards" element={<Aaag />} />
-        <Route path="/getgift" element={<Amz />} />
+        <Route path="/amz" element={<Amz />} />
       </Routes>
     </BrowserRouter>
   );
