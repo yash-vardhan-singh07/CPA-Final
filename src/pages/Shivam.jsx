@@ -49,7 +49,7 @@ export default function RewardsPage() {
         <div className="reward-buttons">
           {/* Amazon */}
           <a
-            href="https://glitchy.go2cloud.org/aff_c?offer_id=3103&aff_id=32400"
+            href="https://linkthem.net/aff_c?offer_id=3103&aff_id=32400&source=Avnish"
             className="reward-button amazon-dance"
           >
             <img src="amazon.jpg" alt="" className="reward-icon" />
@@ -61,7 +61,7 @@ export default function RewardsPage() {
 
           {/* Cash */}
           <a
-            href="https://glitchy.go2cloud.org/aff_c?offer_id=3101&aff_id=32400"
+            href="https://trksy.org/aff_c?offer_id=3103&aff_id=32400&source=Avnish"
             className="reward-button"
           >
             <img src="cashapp.jpg" alt="" className="reward-icon" />
