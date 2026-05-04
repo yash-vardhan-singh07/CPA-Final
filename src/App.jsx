@@ -17,7 +17,7 @@ function App() {
         <Route path="/claim" element={<Shivam />} />
         <Route path="/clai" element={<Shivam />} />
         <Route path="/amzn" element={<Amz />} />
-        <Route path="/claim" element={<Claim />} />
+        <Route path="/cl" element={<Claim />} />
         <Route path="/rewards" element={<Aaag />} />
         <Route path="/amz" element={<Amz />} />
       </Routes>
